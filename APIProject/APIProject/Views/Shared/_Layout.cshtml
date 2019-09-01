@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WindSky - Chấp cánh mọi ước mơ</title> <!---Bootstrap Dashboard by Bootstrapious.com-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="~/Assets/Addmin/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="~/Assets/Addmin/vendor/TimePicker/css/timePicker.css" rel="stylesheet" />
+    <!--Jqery ui-->
+    <link href="~/Assets/Addmin/vendor/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="~/Assets/Addmin/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="~/Assets/Addmin/css/fontastic.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <!-- jQuery Circle-->
+    <link rel="stylesheet" href="~/Assets/Addmin/css/grasp_mobile_progress_circle-1.0.0.min.css">
+    <!-- Custom Scrollbar-->
+    <link rel="stylesheet" href="~/Assets/Addmin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <!-- theme stylesheet-->
+    <link href="~/Assets/Addmin/vendor/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Assets/Addmin/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="~/Assets/Addmin/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="~/Assets/Addmin/img/favicon.ico">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
+    <script src="~/Assets/Addmin/vendor/jquery/jquery.js"></script>
+    <script src="~/Assets/Addmin/vendor/TimePicker/js/jquery-timepicker.js"></script>
+    <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- those files should be add after the </body> tag -->
+   
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.min.css" />
+
+
+    <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+    <!-- select2-bootstrap4-theme -->
+    <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.min.css" rel="stylesheet"> <!-- for live demo page -->
+
+
+</head>
+<div class="modal " id="Modal_Edit_Pass_User" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info ">
+                <h5 class="modal-title" style="color:white;font-weight:bold;" id="exampleModalLabel">Cập nhập lại mật khẩu cho tài khoản</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseEditPassUser()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="width:135px">Mật khẩu mới</span>
+                        </div>
+                        <input type="text" class="form-control text_seach" name="" id="txt_edit_pass_user">
+                    </div>
+                    <div class="input-group mb-3 input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="width:135px">Xác nhận mật khẩu</span>
+                        </div>
+                        <input type="text" class="form-control text_seach" name="" id="txt_check_edit_pass_user">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="CloseEditPassUser()"><i class="fa fa-times"></i> Hủy</button>
+                <button type="button" class="btn btn-primary" onclick="EditPassword()"><i class="fa fa-save"></i> Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+<body>
+
+    <!-- Side Navbar -->
+    <nav class="side-navbar">
+        <div class="side-navbar-wrapper">
+            <!-- Sidebar Header    -->
+            <div class="sidenav-header d-flex align-items-center justify-content-center">
+                <!-- User Info-->
+                <div class="sidenav-header-inner text-center">
+                    <img src="~/Assets/Addmin/img/avatar-12.jpg" alt="person" class="img-fluid rounded-circle">
+                    <h2 class="h6" id="lbl_user_login"></h2>
+                    <input type="hidden" id="txt_role_user_login" />
+                </div>
+                <!-- Small Brand information, appears on minimized sidebar-->
+                <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+            </div>
+            <!-- Sidebar Navigation Menus-->
+            <div class="main-menu">
+                <ul id="side-main-menu" class="side-menu list-unstyled">
+                    <li id="page_home"><a href="/Home/index"> <i class="fa fa-dashboard"></i>Tổng quan</a></li>
+                    <li id="page_center"><a href="/Center/index"> <i class="fa fa-cogs"></i>Trung Tâm</a></li>
+                    <li id="page_pack"><a href="/Pack/index"> <i class="fa fa-book"></i>Gói</a></li>
+                    <li id="page_branch"><a href="/Branch/Index"> <i class="fa fa-map-marker"></i>Cơ sở                            </a></li>
+                    <li id="page_teacher"><a href="/teacher/index"> <i class="fa fa-book"></i>Giáo viên                            </a></li>
+                    <li id="page_parent"><a href="/Parent/Index"> <i class="fa fa-user"></i>Học viên                             </a></li>
+                    <li id="page_class"><a href="/class/index"> <i class="fa fa-map-marker"></i>Lớp học                           </a></li>
+                    <li id="page_Subject"><a href="/Subject/Index"> <i class="fa fa-address-card-o"></i>Môn học                          </a></li>
+                    <li id="page_absent"><a href="/Absent/Index"> <i class="fa fa-check-square"></i>Điểm danh                            </a></li>
+                    <li id="page_fee"><a href="/Fee/index"> <i class="fa fa-usd"></i>Học phí                           </a></li>
+                    <li id="page_salary"><a href="/salary/index"> <i class="fa fa-money"></i>Lương                            </a></li>
+                    <li id="page_review"><a href="/Review/Index"> <i class="fa fa-comments-o"></i>Ý Kiến đề xuất                           </a></li>
+                    <li id="page_SchoolCalendarInformation"><a href="/SchoolCalendarInformation/Index"> <i class="fa fa-calendar"></i>Thời khóa biểu                            </a></li>
+
+                    <li id="page_export">
+                        <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-bar-chart-o"></i>Thống kê báo cáo </a>
+                        <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                            <li id="page_by_class"><a href="/classstudent/index"><i class="fa fa-book"></i>Học sinh theo lớp</a></li>
+                            <li id="page_student_asc_or_desc"><a href="/parent/ascOrDescStudent"><i class="fa fa-book"></i>Học sinh tăng giảm</a></li>
+                            <li id="page-no-absent"><a href="/Absent/NoAbsent" onclick="LoadNoAbsent()"><i class="fa fa-book"></i>Lớp chưa điểm danh</a></li>
+                            <li id="page_absent_detail"><a href="/absentDetail/Index"><i class="fa fa-book"></i>Diểm danh theo HS</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="page_user"><a href="/user/index"> <i class="fa fa-cogs"></i>Thiết lập                           </a></li>
+                    <li id="page_message"><a href="/Message/Index"> <i class="fa fa-envelope"></i>Quản lý tin nhắn                           </a></li>
+                    <li id="page_room"><a href="/Room/Index"><i class="fa fa-home"></i>Quản lý phòng học                          </a></li>
+                    <li id="page_salsry_Level"><a href="/SalaryLevel/index"> <i class="fa fa-signal"></i>Bậc lương                           </a></li>
+                    <li id="page_configtime"><a href="/configtime/index" id="cauhinhnghi"> <i class="fa fa-warning"></i>Cấu hình nghỉ                            </a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <div class="page">
+
+        <header class="header">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <div class="navbar-holder d-flex align-items-center justify-content-between">
+                        <div class="navbar-header">
+                            <a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="/home/index" class="navbar-brand">
+                                <div class="brand-text d-none d-md-inline-block"><strong style="color:white" id="centername"></strong></div>
+                            </a>
+                        </div>
+                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+
+                            <li class="nav-item"><a href="#" id="Export" class="nav-link logout"> <i class="fa fa-bell" id="iconthongbao"></i> <span class="d-none d-sm-inline-block">Thông báo</span></a></li>
+                            <li class="nav-item"><a href="#" id="EditPass" class="nav-link logout"> <i class="fa fa-gear"></i> <span class="d-none d-sm-inline-block">Đổi mật khẩu</span></a></li>
+                            <!-- Log out-->
+                            <li class="nav-item"><a href="/user/logout" class="nav-link logout"><i class="fa fa-sign-out"></i> <span class="d-none d-sm-inline-block">Logout</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        @RenderBody()
+    </div>
+    <!-- JavaScript files-->
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Assets/Addmin/vendor/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="~/Assets/Addmin/vendor/popper.js/umd/popper.min.js"></script>
+    <script src="~/Assets/Addmin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Assets/Addmin/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="~/Assets/Addmin/vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Assets/Addmin/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Assets/Addmin/vendor/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="~/Assets/Addmin/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/Assets/Addmin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Assets/Addmin/js/charts-home.js"></script>
+    <!-- Main File-->
+    <script src="~/Assets/Addmin/js/front.js"></script>
+    <script src="~/Scripts/jquery.datetimepicker.js"></script>
+    <script src="~/Assets/Addmin/js/Project/Script.js"></script>
+
+
+
+
+    <script type="text/javascript">
+
+
+
+        function LoadSalaryTeacher() {
+            var preload = document.getElementById("preload");
+            var loading = 0;
+            var id = setInterval(frame, 64);
+
+            function frame() {
+                if (loading == 100) {
+                    clearInterval(id);
+                    window.open("https://www.youtube.com/watch?v=fsmFBwlk7wo", "_self");
+                }
+                else {
+                    loading = loading + 1;
+                    if (loading == 90) {
+                        preload.style.animation = "fadeout 1s ease";
+                    }
+                }
+            }
+
+
+        }
+    </script>
+</body>
+</html>
+
+
+<div class="modal " id="Modal_Thongbao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info ">
+                <h5 class="modal-title" style="color:white;font-weight:bold;" id="exampleModalLabel">Thông báo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="ClodeModels()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body ">
+                <div class="row mt-3 mr-1 ml-1">
+                    <a href="/absent/ListAbsent?Page=1&Count=10&STATUS=1" class="btn btn-primary btn-lg active col-lg-12" role="button" aria-pressed="true">
+                        <span id="Export1"></span>
+                    </a>
+                </div>
+                <div class="row mt-3 mr-1 ml-1">
+                    <a href="/absent/ListAbsent?Page=1&Count=10&STATUS=2" class="btn btn-info btn-lg active col-lg-12" role="button" aria-pressed="true">
+                        <span id="Export2">Có 4 Lớp đã kiểm duyệt lần 1</span>
+                    </a>
+                </div>
+                <div class="row mt-3 mr-1 ml-1">
+                    <a href="/absent/ListAbsent?Page=1&Count=10&STATUS=3" class="btn btn-warning btn-lg active col-lg-12 " role="button" aria-pressed="true">
+                        <span id="Export3" style="color:white">Có 2 lớp điểm danh sai</span>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="" crossorigin="anonymous"></script>
+<!-- select2 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+<script type="text/javascript">
+
+    function ClodeModels() {
+        $(".modal").hide(); 
+    }
+    $(function () {
+
+        $(".select_box").select2({
+            theme: 'bootstrap4',
+            width: 'style',
+            placeholder: $(this).attr('placeholder'),
+            allowClear: Boolean($(this).data('allow-clear')),
+        });
+        $(".select2-selection").removeClass("select2-selection--single")
+    });
+</script>
+
+<div class="modal" id="modalLoad" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content text-center py-3">
+            <div class="modal-body text-center">
+                <i class="fa fa-spinner text-success fa-spin" style="font-size: 40px;"></i>
+                <div class="col-md-12 text-center mt-2">
+                    <span>Đang xử lý</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

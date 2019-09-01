@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ecd050af20d048f4909449161a4f0398" Name="Diagram1">
+        <EntityTypeShape EntityType="DBPhoneModel.BinhLuan" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.ChiTietDonHang" Width="1.5" PointX="8.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.ConfigAPI" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.DanhsachdangkisanphamNCC" Width="1.5" PointX="7.5" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.DonHangKH" Width="1.5" PointX="6" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.GiaoDien" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.HangSanXuat" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.HopDongNCC" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.KhuyenMai" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.Link" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.LoaiSP" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.NhaCungCap" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.Oauth" Width="1.5" PointX="8.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.SanPham" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.Sanphamcanmua" Width="1.5" PointX="5.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.SanPhamKhuyenMai" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.ThongSoKyThuat" Width="1.5" PointX="5.25" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.Trackingaction" Width="1.5" PointX="10.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPhoneModel.User" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="DBPhoneModel.FK_BinhLuan_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_BinhLuan_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_ChiTietDonHang_DonHangKH" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_ChiTietDonHang_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_Config_NhaCC" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_DKNCC_NCC" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_SPCM_DKNCC" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_DonHangKH_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_SanPham_HangSanXuat" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_HopDongNCC_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_Table_NhaCungCap" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_SanPhamKhuyenMai_KhuyenMai" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_SanPham_LoaiSP" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_NhaCC_Netuser" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.PK_Oauth_NhaCC" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_SanPhamKhuyenMai_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.FK_ThongSoKyThuat_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="DBPhoneModel.PK_SPCM_SP" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
